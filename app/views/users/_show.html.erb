@@ -1,0 +1,10 @@
+<div class="card shadow-sm p-3">
+  <h2>ユーザー画面</h2>
+  <%= attachment_image_tag user,:profile_image,fallback:"no_image.png",class:"card-img-top rounded-circle" %>
+  <div class="card-body">
+    <h4 class="card-title">ユーザー名<br><%= user.name %></h4>
+    <% if user.id==current_user.id %>
+      <%= link_to "編集",edit_user_path(current_user.id),class:"btn btn-success" %>
+    <% end %>
+  </div>
+</div>

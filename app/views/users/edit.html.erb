@@ -1,0 +1,10 @@
+
+<%= form_with model:@user,local:true do |f| %>
+  <div class="w-25 border rounded p-3 ml-5">
+    <%= f.label:name %><br>
+    <%= f.text_field:name ,class:"form-control" %><br>
+    <%= f.label:image %><br>
+    <%= f.attachment_field:profile_image %><br>
+    <%= f.submit "登録" ,class:"btn btn-success mt-3" %><br>
+  </div>
+<% end %>

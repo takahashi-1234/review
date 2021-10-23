@@ -1,0 +1,27 @@
+<%= form_with model:post,local:true do |f| %>
+    <div class="border rounded p-3 mt-3">
+        <h3>新規投稿</h3>
+        <%= f.label:protein_type %><br>
+        <%= f.select:protein_type,[["ホエイ","ホエイ"],["カゼイン","カゼイン"],["soi","soi"]],include_blank:"選択してください" %><br>
+        <%= f.label:name %><br>
+        <%= f.text_field:name ,class:"form-control"%><br>
+        <%= f.label:body %><br>
+        <%= f.text_area:body,class:"form-control" %><br>
+        <div class="mb-2" id="star">
+        <%= f.label:rate,"星評価:" %>
+        <%= f.hidden_field:rate,id: :review_star %>
+         <script>
+            $('#star').raty({
+                size:36,
+                starOff:'<%= asset_path('star-off.png') %>',
+                starOn:'<%= asset_path('star-on.png') %>',
+                starHalf:'<%= asset_path('star-half.png') %>',
+                scoreName:'post[rate]',
+                half:true,
+            });
+        </script>
+        </div>
+        <%= f.attachment_field:post_image %><br>
+        <%= f.submit "登録",class:"btn btn-primary mt-3" %><br>
+    </div>
+<% end %>
